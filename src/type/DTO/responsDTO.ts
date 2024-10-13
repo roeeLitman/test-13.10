@@ -1,6 +1,6 @@
 export interface ResponseDTO{
     err:boolean,
-    stutos: number,
+    status: number,
     data?: unknown,
     mge?: string 
 }

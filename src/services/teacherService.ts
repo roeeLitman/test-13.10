@@ -18,7 +18,7 @@ export const createTeachrInDb = async (
         const userFromDb = await newTeacher.save()
         return {
             err: false,
-            stutos:201,
+            status:201,
             data: userFromDb
         }
 
@@ -27,7 +27,7 @@ export const createTeachrInDb = async (
         console.log(err);
         return {
             err: false,
-            stutos:201,
+            status:201,
             data: err,
             mge: "not save teachr"
         }

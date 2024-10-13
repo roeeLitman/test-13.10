@@ -9,9 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUser = exports.getUsers = exports.createUser = void 0;
-const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () { });
-exports.createUser = createUser;
+exports.getUser = exports.getUsers = exports.createTeachr = void 0;
+const teacherService_1 = require("../services/teacherService");
+const createTeachr = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const teacher = yield (0, teacherService_1.createTeachrInDb)(req.body);
+        res.status(teacher.status).json(teacher);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+exports.createTeachr = createTeachr;
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () { });
 exports.getUsers = getUsers;
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () { });

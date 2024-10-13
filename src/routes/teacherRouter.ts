@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { createUser, getUser, getUsers } from "../controllers/userController";
+import { createTeachr, getUser, getUsers } from "../controllers/userController";
 
 const teacherRouter = Router();
 
 // create teacher
-teacherRouter.post("/", ()=>{});
+teacherRouter.post("/", createTeachr);
 
 // add score to student
 teacherRouter.put("/", ()=>{});

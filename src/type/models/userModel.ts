@@ -28,7 +28,7 @@ const TestSchema = new Schema<Itest>({
   }
 })
 
-const UserSchema = new Schema<IUser>({
+export const UserSchema = new Schema<IUser>({
   name:{
     type: String,
     required: [true, "please enter name"]

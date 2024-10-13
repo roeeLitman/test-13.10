@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const userController_1 = require("../controllers/userController");
 const teacherRouter = (0, express_1.Router)();
 // create teacher
-teacherRouter.post("/", () => { });
+teacherRouter.post("/", userController_1.createTeachr);
 // add score to student
 teacherRouter.put("/", () => { });
 // get all ainformtion

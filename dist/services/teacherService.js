@@ -26,7 +26,7 @@ const createTeachrInDb = (teacher) => __awaiter(void 0, void 0, void 0, function
         const userFromDb = yield newTeacher.save();
         return {
             err: false,
-            stutos: 201,
+            status: 201,
             data: userFromDb
         };
     }
@@ -34,7 +34,7 @@ const createTeachrInDb = (teacher) => __awaiter(void 0, void 0, void 0, function
         console.log(err);
         return {
             err: false,
-            stutos: 201,
+            status: 201,
             data: err,
             mge: "not save teachr"
         };
