@@ -1,17 +1,11 @@
 import { Router } from "express";
-import {
-  createPost,
-  getPosts,
-  getPost,
-  updatePost,
-  deletePost,
-  addComment,
-} from "../controllers/postController";
+import { createstudent } from "../controllers/studentController";
+
 
 const studentRouter = Router();
 
-studentRouter.post("/", createPost);
+studentRouter.post("/:id", createstudent);
 
-studentRouter.get("/score/:id", getPosts);
+// studentRouter.get("/score/:id", getPosts);
 
 export default studentRouter;

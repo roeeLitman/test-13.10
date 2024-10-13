@@ -1,11 +1,12 @@
+import { log } from "console";
 import { ResponseDTO } from "../type/DTO/responsDTO";
-import { TeacherDTO } from "../type/DTO/teacherDTO";
+import { UserDTO } from "../type/DTO/teacherDTO";
 import { role } from "../type/enums/role";
 import UserModel, { UserSchema } from "../type/models/userModel";
 
 
 export const createTeachrInDb = async (
-  teacher: TeacherDTO
+  teacher: UserDTO
 ): Promise<ResponseDTO> => {
     try {
         // create user with role of teacher

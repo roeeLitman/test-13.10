@@ -17,10 +17,14 @@ const role_1 = require("../type/enums/role");
 const userModel_1 = __importDefault(require("../type/models/userModel"));
 const createStudent = (id, studentFromReq) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        // create student
         const newStudent = new userModel_1.default(studentFromReq);
         newStudent.role = role_1.role.student;
         newStudent.tests = [];
-        userModel_1.default.findByIdAndUpdate(id, { $push: { students: newStudent.id } });
+        console.log(newStudent);
+        // add student.id to arry for theacher
+        yield userModel_1.default.findByIdAndUpdate(id, { $push: { students: newStudent.id } });
+        // finsh success
         const userFromDb = yield newStudent.save();
         return {
             err: false,

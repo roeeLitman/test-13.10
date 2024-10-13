@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import User, { IUser } from "../type/models/userModel";
-import { TeacherDTO } from "../type/DTO/teacherDTO";
+import { UserDTO } from "../type/DTO/teacherDTO";
 import { createTeachrInDb } from "../services/teacherService";
 import { ResponseDTO } from "../type/DTO/responsDTO";
 
-export const createTeachr = async (req: Request<any,any,TeacherDTO>, res: Response) => {
+export const createTeachr = async (req: Request<any,any,UserDTO>, res: Response) => {
     try {
         const teacher:ResponseDTO = await createTeachrInDb(req.body)
         res.status(teacher.status).json(teacher)
