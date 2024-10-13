@@ -7,7 +7,7 @@ const teacherRouter = Router();
 teacherRouter.post("/", createTeachr);
 
 // add score to student
-teacherRouter.put("/", ()=>{});
+teacherRouter.put("/:id", addScoreToSrudent);
 
 // get all ainformtion
 teacherRouter.get("/", ()=>{});

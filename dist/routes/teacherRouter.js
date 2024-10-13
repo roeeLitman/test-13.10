@@ -6,7 +6,7 @@ const teacherRouter = (0, express_1.Router)();
 // create teacher
 teacherRouter.post("/", userController_1.createTeachr);
 // add score to student
-teacherRouter.put("/", () => { });
+teacherRouter.put("/:id", addScoreToSrudent);
 // get all ainformtion
 teacherRouter.get("/", () => { });
 // update score
