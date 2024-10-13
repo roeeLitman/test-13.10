@@ -53,7 +53,8 @@ const UserSchema = new mongoose_1.Schema({
     },
     students: {
         type: [mongoose_1.Types.ObjectId],
-        required: false
+        required: false,
+        ref: "Tests"
     },
     studentsArray: {
         type: [mongoose_1.Types.ObjectId],

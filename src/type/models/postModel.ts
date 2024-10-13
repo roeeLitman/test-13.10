@@ -1,20 +1,18 @@
-import mongoose, { Schema, Document, Types } from "mongoose";
+// import mongoose, { Schema, Document, Types } from
 
-export interface IComment {
-  content: string;
-  author: Types.ObjectId;
-  createdAt: Date;
-}
+// export interface Itest extends Document {
+//   create_at: Date
+//   score: number
+// }
 
-export interface IPost extends Document {
-  _id: Types.ObjectId;
-  title: string;
-  content: string;
-  author: Types.ObjectId;
-  comments: IComment[];
-}
+// const TestSchema = new Schema<Itest>({
+//   create_at: {
+//     type: Date,
+//     required:[true,"please enter date"]
+//   },
+//   score: {
+//     type: Number,
+//     required:[true,"please enter score"]
+//   }
+// })
 
-const CommentSchema = new Schema<IComment>({});
-
-
-export default mongoose.model<IPost>("Post", PostSchema);

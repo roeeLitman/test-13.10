@@ -47,7 +47,8 @@ const UserSchema = new Schema<IUser>({
   },
   students:{
     type: [Types.ObjectId],
-    required: false
+    required: false,
+    ref: "Tests"
   },
   studentsArray:{
     type: [Types.ObjectId],
