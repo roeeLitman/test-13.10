@@ -11,10 +11,7 @@ import {
 const studentRouter = Router();
 
 studentRouter.post("/", createPost);
-studentRouter.get("/", getPosts);
-studentRouter.get("/:id", getPost);
-studentRouter.put("/:id", updatePost);
-studentRouter.delete("/:id", deletePost);
-studentRouter.post("/:id/comments", addComment);
+
+studentRouter.get("/score/:id", getPosts);
 
 export default studentRouter;
