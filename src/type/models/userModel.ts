@@ -17,6 +17,17 @@ export interface IUser extends Document {
   tests?:Itest[]
 }
 
+const TestSchema = new Schema<Itest>({
+  create_at: {
+    type: Date,
+    required:[true,"pleas enter date"]
+  },
+  score: {
+    type: Number,
+    required:[true,"pleas enter score"]
+  }
+})
+
 const UserSchema = new Schema<IUser>({
   name:{
     type: String,
@@ -31,10 +42,10 @@ const UserSchema = new Schema<IUser>({
     required: [true, "pleas enter name"]
   },
   tests:{
-    type: [],
+    type: [TestSchema],
   }
 });
 
+const UserModel:mongoose.Model<IUser> = mongoose.model<IUser>("User", UserSchema);
 
-
-export default mongoose.model<IUser>("User", UserSchema);
+export default  UserModel
