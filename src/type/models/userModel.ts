@@ -2,8 +2,6 @@ import mongoose, { Schema, Document, Types } from "mongoose";
 import validator from "validator";
 
 
-
-
 export interface Itest extends Document {
   create_at: Date
   score: number
@@ -11,39 +9,50 @@ export interface Itest extends Document {
 
 export interface IUser extends Document {
   name: string;
-  password: string
+  password: string;
   email: string;
   role:string
-  tests?:Itest[]
+  tests?:Itest[];
+  students?: IUser[];
+  studentsArray?: number[]
 }
 
 const TestSchema = new Schema<Itest>({
   create_at: {
     type: Date,
-    required:[true,"pleas enter date"]
+    required:[true,"please enter date"]
   },
   score: {
     type: Number,
-    required:[true,"pleas enter score"]
+    required:[true,"please enter score"]
   }
 })
 
 const UserSchema = new Schema<IUser>({
   name:{
     type: String,
-    required: [true, "pleas enter name"]
+    required: [true, "please enter name"]
   },
   password:{
     type: String,
-    required: [true, "pleas enter name"]
+    required: [true, "please enter password"]
   },
   email:{
     type: String,
-    required: [true, "pleas enter name"]
+    required: [true, "please enter email"]
   },
   tests:{
     type: [TestSchema],
-  }
+    required: false
+  },
+  students:{
+    type: [Types.ObjectId],
+    required: false
+  },
+  studentsArray:{
+    type: [Types.ObjectId],
+    required: false
+  },
 });
 
 const UserModel:mongoose.Model<IUser> = mongoose.model<IUser>("User", UserSchema);

@@ -27,29 +27,38 @@ const mongoose_1 = __importStar(require("mongoose"));
 const TestSchema = new mongoose_1.Schema({
     create_at: {
         type: Date,
-        required: [true, "pleas enter date"]
+        required: [true, "please enter date"]
     },
     score: {
         type: Number,
-        required: [true, "pleas enter score"]
+        required: [true, "please enter score"]
     }
 });
 const UserSchema = new mongoose_1.Schema({
     name: {
         type: String,
-        required: [true, "pleas enter name"]
+        required: [true, "please enter name"]
     },
     password: {
         type: String,
-        required: [true, "pleas enter name"]
+        required: [true, "please enter password"]
     },
     email: {
         type: String,
-        required: [true, "pleas enter name"]
+        required: [true, "please enter email"]
     },
     tests: {
         type: [TestSchema],
-    }
+        required: false
+    },
+    students: {
+        type: [mongoose_1.Types.ObjectId],
+        required: false
+    },
+    studentsArray: {
+        type: [mongoose_1.Types.ObjectId],
+        required: false
+    },
 });
 const UserModel = mongoose_1.default.model("User", UserSchema);
 exports.default = UserModel;
