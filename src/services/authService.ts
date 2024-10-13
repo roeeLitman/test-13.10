@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import { LoginDTO } from "../type/DTO/loginDTO";
 import UserModel from "../type/models/userModel";
 import { ResponseDTO } from "../type/DTO/responsDTO";
+import { LoginDTO } from "../type/DTO/loginDTO";
 
 export const createLogin = async (login: LoginDTO): Promise<ResponseDTO> => {
   try {
@@ -16,8 +16,10 @@ export const createLogin = async (login: LoginDTO): Promise<ResponseDTO> => {
         mge: "not found User",
       };
     }
+    //delete pasword from user
+    const userForToken = {...userFromDb ,id:""}
     const token = await jwt.sign(
-      { userFromDb },
+      { userForToken },
       process.env.TOKEN_SECRET as string,
       { expiresIn: "10m" }
     );

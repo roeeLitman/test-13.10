@@ -26,6 +26,7 @@ exports.createTeachr = createTeachr;
 //add score to student
 const addTestToStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log(req.user);
         const test = yield (0, teacherService_1.addTestToStudentInDb)(req.params.id, req.body);
         res.status(test.status).json(test);
     }

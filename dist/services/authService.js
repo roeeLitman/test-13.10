@@ -28,7 +28,9 @@ const createLogin = (login) => __awaiter(void 0, void 0, void 0, function* () {
                 mge: "not found User",
             };
         }
-        const token = yield jsonwebtoken_1.default.sign({ userFromDb }, process.env.TOKEN_SECRET, { expiresIn: "10m" });
+        //delete pasword from user
+        const userForToken = Object.assign(Object.assign({}, userFromDb), { id: "" });
+        const token = yield jsonwebtoken_1.default.sign({ userForToken }, process.env.TOKEN_SECRET, { expiresIn: "10m" });
         return {
             err: false,
             status: 201,

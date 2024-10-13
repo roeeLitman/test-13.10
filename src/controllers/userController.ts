@@ -4,6 +4,7 @@ import { UserDTO } from "../type/DTO/teacherDTO";
 import { addTestToStudentInDb, createTeachrInDb } from "../services/teacherService";
 import { ResponseDTO } from "../type/DTO/responsDTO";
 import { TestDTO } from "../type/DTO/testDTO";
+import { log } from "console";
 
 //create new teacher
 export const createTeachr = async (req: Request<any,any,UserDTO>, res: Response) => {
@@ -19,6 +20,8 @@ export const createTeachr = async (req: Request<any,any,UserDTO>, res: Response)
 //add score to student
 export const addTestToStudent = async (req: Request<any,any,TestDTO>, res: Response) => {
     try {
+        console.log((req as any).user);
+        
         const test:ResponseDTO = await addTestToStudentInDb(req.params.id , req.body)
         res.status(test.status).json(test)
     } catch (err) {
