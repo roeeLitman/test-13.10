@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUser = exports.addTestToStudentInDb = exports.createTeachr = void 0;
+exports.getUser = exports.addTestToStudent = exports.createTeachr = void 0;
 const teacherService_1 = require("../services/teacherService");
 //create new teacher
 const createTeachr = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -24,9 +24,9 @@ const createTeachr = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.createTeachr = createTeachr;
 //add score to student
-const addTestToStudentInDb = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const addTestToStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const test = yield (0, exports.addTestToStudentInDb)(req.params.id, req.body);
+        const test = yield (0, teacherService_1.addTestToStudentInDb)(req.params.id, req.body);
         res.status(test.status).json(test);
     }
     catch (err) {
@@ -34,7 +34,7 @@ const addTestToStudentInDb = (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.status(500).json(err);
     }
 });
-exports.addTestToStudentInDb = addTestToStudentInDb;
+exports.addTestToStudent = addTestToStudent;
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () { });
 exports.getUser = getUser;
 // Optionally, add DELETE and EDIT functions

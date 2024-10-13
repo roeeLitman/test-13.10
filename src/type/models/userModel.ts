@@ -18,7 +18,7 @@ export interface IUser extends Document {
   class?:string
 }
 
-const TestSchema = new Schema<Itest>({
+export const TestSchema = new Schema<Itest>({
   create_at: {
     type: Date,
     required:[true,"please enter date"]
@@ -47,7 +47,7 @@ export const UserSchema = new Schema<IUser>({
     required: false
   },
   students:{
-    type: [Types.ObjectId],
+    type: [Schema.Types.ObjectId],
     required: false,
     ref: "Users"
   },

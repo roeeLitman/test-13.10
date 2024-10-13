@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import User, { IUser } from "../type/models/userModel";
 import { UserDTO } from "../type/DTO/teacherDTO";
-import { createTeachrInDb } from "../services/teacherService";
+import { addTestToStudentInDb, createTeachrInDb } from "../services/teacherService";
 import { ResponseDTO } from "../type/DTO/responsDTO";
 import { TestDTO } from "../type/DTO/testDTO";
 
@@ -17,7 +17,7 @@ export const createTeachr = async (req: Request<any,any,UserDTO>, res: Response)
 };
 
 //add score to student
-export const addTestToStudentInDb = async (req: Request<any,any,TestDTO>, res: Response) => {
+export const addTestToStudent = async (req: Request<any,any,TestDTO>, res: Response) => {
     try {
         const test:ResponseDTO = await addTestToStudentInDb(req.params.id , req.body)
         res.status(test.status).json(test)

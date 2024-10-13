@@ -23,9 +23,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserSchema = void 0;
+exports.UserSchema = exports.TestSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const TestSchema = new mongoose_1.Schema({
+exports.TestSchema = new mongoose_1.Schema({
     create_at: {
         type: Date,
         required: [true, "please enter date"]
@@ -49,11 +49,11 @@ exports.UserSchema = new mongoose_1.Schema({
         required: [true, "please enter email"]
     },
     tests: {
-        type: [TestSchema],
+        type: [exports.TestSchema],
         required: false
     },
     students: {
-        type: [mongoose_1.Types.ObjectId],
+        type: [mongoose_1.Schema.Types.ObjectId],
         required: false,
         ref: "Users"
     },
