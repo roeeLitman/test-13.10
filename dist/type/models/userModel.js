@@ -54,12 +54,12 @@ const UserSchema = new mongoose_1.Schema({
     students: {
         type: [mongoose_1.Types.ObjectId],
         required: false,
-        ref: "Tests"
+        ref: "Users"
     },
-    studentsArray: {
-        type: [mongoose_1.Types.ObjectId],
+    TestArray: {
+        type: [Number],
         required: false
-    },
+    }
 });
 const UserModel = mongoose_1.default.model("User", UserSchema);
 exports.default = UserModel;

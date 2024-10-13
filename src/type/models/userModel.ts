@@ -14,7 +14,7 @@ export interface IUser extends Document {
   role:string
   tests?:Itest[];
   students?: IUser[];
-  studentsArray?: number[]
+  TestArray?: number[]
 }
 
 const TestSchema = new Schema<Itest>({
@@ -48,12 +48,12 @@ const UserSchema = new Schema<IUser>({
   students:{
     type: [Types.ObjectId],
     required: false,
-    ref: "Tests"
+    ref: "Users"
   },
-  studentsArray:{
-    type: [Types.ObjectId],
+  TestArray:{
+    type: [Number],
     required: false
-  },
+  }
 });
 
 const UserModel:mongoose.Model<IUser> = mongoose.model<IUser>("User", UserSchema);
