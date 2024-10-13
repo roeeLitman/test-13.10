@@ -4,23 +4,37 @@ import validator from "validator";
 
 
 
-export interface IUser extends Document {
-  username: string;
-  password: string
-  email: string;
-  role:string
-  tests:
+export interface Itest extends Document {
+  create_at: Date
+  score: number
 }
 
 export interface IUser extends Document {
-  username: string;
+  name: string;
   password: string
   email: string;
   role:string
-  tests:
-
+  tests?:Itest[]
 }
 
-const UserSchema = new Schema<IUser>({});
+const UserSchema = new Schema<IUser>({
+  name:{
+    type: String,
+    required: [true, "pleas enter name"]
+  },
+  password:{
+    type: String,
+    required: [true, "pleas enter name"]
+  },
+  email:{
+    type: String,
+    required: [true, "pleas enter name"]
+  },
+  tests:{
+    type: [],
+  }
+});
+
+
 
 export default mongoose.model<IUser>("User", UserSchema);
