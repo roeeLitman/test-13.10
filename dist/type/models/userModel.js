@@ -60,6 +60,13 @@ exports.UserSchema = new mongoose_1.Schema({
     TestArray: {
         type: [Number],
         required: false
+    },
+    class: {
+        type: String
+    },
+    role: {
+        type: String,
+        required: [true, "not enter name"]
     }
 });
 const UserModel = mongoose_1.default.model("User", exports.UserSchema);

@@ -14,7 +14,8 @@ export interface IUser extends Document {
   role:string
   tests?:Itest[];
   students?: IUser[];
-  TestArray?: number[]
+  TestArray?: number[];
+  class?:string
 }
 
 const TestSchema = new Schema<Itest>({
@@ -53,6 +54,13 @@ export const UserSchema = new Schema<IUser>({
   TestArray:{
     type: [Number],
     required: false
+  },
+  class:{
+    type: String
+  },
+  role:{
+    type: String,
+    required: [true, "not enter name"]
   }
 });
 
